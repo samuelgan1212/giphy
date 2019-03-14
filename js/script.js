@@ -11,7 +11,9 @@ $("#search-button").click(function(){
     url:url,
         method: "GET",
         success: function(response) {
-            $(".row gallery justify-content-center").append("<a href='"+response["data"]["images"]["fixed_width"]["url"]+"'>/<img src="+response["data"]["images"]["fixed_width"]["url"]+);
+            $(".gallery").append(
+                "<a href =" + response.data[ Math.floor(Math.random() * response.data.length)].images.fixed_width.url+"><img src='" + response.data[Math.floor(Math.random() * response.data.length)].images.fixed_width.url + "'></a>"
+                );
             }
     
     });
