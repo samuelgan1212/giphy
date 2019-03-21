@@ -19,6 +19,23 @@ $("#search-button").click(function(){
     });
   
 });
+$("#search-button1").click(function(){
+    $('.gallery').empty();
+    var url = "https://api.giphy.com/v1/gifs/search?q=random&rating=pg&api_key=dc6zaTOxFJmzC";
+    $.ajax({
+    url:url,
+        method: "GET",
+        success: function(response) {
+            $(".gallery").append(
+                "<a href =" + response.data[ Math.floor(Math.random() * response.data.length)].images.fixed_width.url+"><img src='" + response.data[Math.floor(Math.random() * response.data.length)].images.fixed_width.url + "'></a>"
+                );
+            }
+    
+    });
+  
+});
+
+
 $("#Search-buttonallimage").click(function(){
     $('.gallery').empty();
     var searchTerm = $('#search-term').val();
